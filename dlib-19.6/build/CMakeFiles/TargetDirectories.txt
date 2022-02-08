@@ -1,0 +1,14 @@
+/app/attendance_system/dlib-19.6/build/CMakeFiles/install/strip.dir
+/app/attendance_system/dlib-19.6/build/CMakeFiles/install.dir
+/app/attendance_system/dlib-19.6/build/CMakeFiles/install/local.dir
+/app/attendance_system/dlib-19.6/build/CMakeFiles/list_install_components.dir
+/app/attendance_system/dlib-19.6/build/CMakeFiles/edit_cache.dir
+/app/attendance_system/dlib-19.6/build/CMakeFiles/rebuild_cache.dir
+/app/attendance_system/dlib-19.6/build/dlib/CMakeFiles/install/strip.dir
+/app/attendance_system/dlib-19.6/build/dlib/CMakeFiles/install/local.dir
+/app/attendance_system/dlib-19.6/build/dlib/CMakeFiles/dlib_shared.dir
+/app/attendance_system/dlib-19.6/build/dlib/CMakeFiles/dlib.dir
+/app/attendance_system/dlib-19.6/build/dlib/CMakeFiles/rebuild_cache.dir
+/app/attendance_system/dlib-19.6/build/dlib/CMakeFiles/edit_cache.dir
+/app/attendance_system/dlib-19.6/build/dlib/CMakeFiles/list_install_components.dir
+/app/attendance_system/dlib-19.6/build/dlib/CMakeFiles/install.dir

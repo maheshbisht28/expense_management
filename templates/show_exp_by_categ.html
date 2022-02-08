@@ -1,0 +1,297 @@
+    
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="{% static 'indexstyle.css' %}" >
+<link rel="icon" href="{% static 'favicon.ico' %}">
+  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+  <link rel="stylesheet"  href="{% static 'awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'imate/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'select2.min.css' %}">
+  <link rel="stylesheet" href="{% static 'perfect-scrollbar.css' %}">
+
+  <link rel="stylesheet"  href="{% static 'util.css' %}">
+  <link rel="stylesheet" href="{% static 'main.css' %}">
+    
+<style>
+
+ .button {
+  display: inline-flex;
+  height: 40px;
+  width: 150px;
+  border: 2px solid black;
+  margin: 20px 20px 20px 20px;
+  color: #BFC0C0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+ .wrapper {
+  margin-right: auto; /* 1 */
+  margin-left:  auto; /* 1 */
+
+  max-width: 714px; /* 2 */
+
+  padding-right: 10px; /* 3 */
+  padding-left:  10px; /* 3 */
+}  
+a{ font-size:20px; 
+  color:white;
+  text-align:right;
+}
+p{ font-size:19px;
+  color: black;
+  font-family: OpenSans-Regular
+}
+#container{width:100%;}
+#left{
+   float:left;  
+                background:#002147; 
+                width:12%; 
+                height:1454px;
+text-align: center;
+}
+#right{float:right;width:100px;}
+#center{margin:0 auto;width:970px;}
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: 'Exo', sans-serif;
+}
+
+
+.context {
+    width: 100%;
+    position: absolute;
+    top:50vh;
+    
+}
+
+.context h1{
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+}
+
+
+.area{
+    background: #e5dfdf;  
+    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+    width: 100%;
+    height:1000px;
+    
+   
+}
+
+.circles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 1);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    
+}
+
+
+@keyframes animate {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+}
+br {
+   display: block;
+   margin: 10px 0;
+}
+
+
+
+
+</style>
+
+</head>
+<body>
+ 
+  
+
+ <div class="area" >
+                 <div id="left">
+                           <br>
+                         
+                          <br>
+                             <div  id="button-5">
+                              <a  href={% url 'User_dashboard' %} >Home</a></div>
+                              <br>
+                              <br>
+                            <div  id="button-5">
+                              <a  href={% url 'Add_Expenses' %} >Add Expenses</a></div>
+                              <br>
+
+                              <br>
+                            <div  id="button-5">
+                              <a  href={% url 'Show_Expenses' %} >Show Expenses</a></div>
+                              <br>
+
+                            <div  id="button-5">
+                            <a href="{% url 'logout' %}">Logout</a>
+                            </div>
+                   </div>              
+                  <div id="center"> 
+                            <div class="wrap-table100">
+                                    <div class="table100 ver1 m-b-110">
+                                          <div class="table100-head">
+                                            <table>
+                                              <thead>
+                                                <tr class="row100 head">
+                                               
+                                                  <th class="cell100 column1">S.no</th>
+                                                  <th class="cell100 column1">Expense Name</th>
+                                                  <th class="cell100 column1">Date</th>
+                                                  <th class="cell100 column1">Category</th>
+                                                  <th class="cell100 column1">Money</th>
+                                                  <th class="cell100 column1">Desc</th>
+                                                  <th class="cell100 column1">Edit</th>
+
+                                                </tr>
+                                              </thead>
+                                            </table>
+                                          </div>
+                   
+                                          <div class="table100-body js-pscroll">
+                                            <table>
+                                              <tbody>
+                                                {% for f in form %}
+                                                <tr class="row100 body">
+                                              <td class="cell100 column1">{{ forloop.counter }}</td>    
+                                                <td class="cell100 column1">{{ f.ex_name}}</td>
+                                            <td class="cell100 column1">{{ f.date}}</td>
+                                            <td class="cell100 column1">{{ f.category}}</td>
+                                            <td class="cell100 column1">{{ f.money}}</td>
+                                            <td class="cell100 column1">{{ f.desc}}</td>
+                                             <td class="cell100 column1" ><a href="{% url 'edit_expense' pk=f.id %} " style="color:green;font-size:16px" type="submit" >Click Here</a>
+                                             </td>
+                                                </tr>
+                                                {% endfor%}     
+                                               <tr class="row100 body">
+                                              <td class="cell100 column1"></td>    
+                                                <td class="cell100 column1"></td>
+                                            <td class="cell100 column1"></td>
+                                            <td class="cell100 column1"></td>
+                                            <td class="cell100 column1">Sum={{sum}}</td>
+                                            <td class="cell100 column1"></td>
+                                             <td class="cell100 column1" >
+                                             </td>
+                                                </tr>
+
+                                         
+                                              </tbody>
+                                                  
+                                            </table>
+                                          </div>
+                                         
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+<div style="width: 75%;">
+     <canvas id="pie-chart"></canvas>
+     
+  </div>
+  <div style="width: 75%;">
+     
+     <canvas id="myAreaChart"></canvas>
+  </div>
+
+  <script>
+
+var config = {
+      type: 'pie',
+      data: {
+        datasets: [{
+          data: {{ data|safe }},
+          backgroundColor: [
+            'red', 'green', 'blue', 'orange', 'black', 'yellow','black','grey','white','pink'
+          ],
+          label: 'Population'
+        }],
+        labels: {{ labels|safe }}
+      },
+      options: {
+        responsive: true
+      }
+    };
+
+     window.onload = function() 
+     {
+      var ctx = document.getElementById('pie-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+     };
+
+var ctx = document.getElementById("myAreaChart");
+var myLineChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: {{ labels|safe }},
+    datasets: [{
+      label: "Earnings",
+      lineTension: 0.3,
+      backgroundColor: "rgba(78, 115, 223, 0.05)",
+      borderColor: "rgba(78, 115, 223, 1)",
+      pointRadius: 3,
+      pointBackgroundColor: "rgba(78, 115, 223, 1)",
+      pointBorderColor: "rgba(78, 115, 223, 1)",
+      pointHoverRadius: 3,
+      pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+      pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+      pointHitRadius: 10,
+      pointBorderWidth: 2,
+      data: {{ data|safe }},
+    }],
+  },
+});
+
+  </script>
+                                        
+
+                                    </div>
+                              </div>
+
+
+                    </div>
+</div>        
+
+
+
+
+</body>
+</html>
